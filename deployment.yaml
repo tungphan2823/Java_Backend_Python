@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myflaskapp
+spec:
+  replicas: 3  
+  selector:
+    matchLabels:
+      app: myflaskapp
+  template:
+    metadata:
+      labels:
+        app: myflaskapp
+    spec:
+      containers:
+      - name: myflaskapp
+        image: docker.io/anzzanbc32/myflaskapp
+        ports:
+        - containerPort: 5000
